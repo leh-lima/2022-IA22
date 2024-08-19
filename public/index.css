@@ -5,7 +5,7 @@ html, body {
   }
   
   body {
-    background-image: url(https://raw.githubusercontent.com/Edson-Edu/2024-IA22-2TRI/main/public/seattle.jpg);
+    background-image: url(https://raw.githubusercontent.com/leh-lima/2022-IA22/main/public/volei.jfif);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -24,7 +24,7 @@ html, body {
   }
   
   h1 {
-    font-size: 2.5em;
+    font-size: 1.2em;
     margin-bottom: 10px;
   }
   
@@ -50,14 +50,14 @@ html, body {
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
-    background-color: #e06c29;
+    background-color: #e9d043a6;
     color: #fff;
     cursor: pointer;
     font-size: 1em;
   }
   
   form button:hover {
-    background-color: #ce6916;
+    background-color: #e9d043;
   }
   
   table {
@@ -72,7 +72,7 @@ html, body {
   }
   
   table th {
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: #e9d043a6;
   }
   
   table td {
