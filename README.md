@@ -32,27 +32,27 @@ SE FOR COPIAR, COPIA UMA LINHA POR VEZ SE NÃO VAI DAR ERRO
 1° linha
 ```
 npm init -y
-````
+```
 2° linha
 ```
 npm install express cors sqlite3 sqlite
-````
+```
 3° linha
 ```
 npm install --save-dev typescript nodemon ts-node @types/express @types/cors
-````
+```
 4° linha
 ```
 npx tsc --init
-````
+```
 5° linha
 ```
 mkdir src
-````
+```
 6° linha
 ```
 touch src/app.ts
-````
+```
 
 Após colocar esse código, o canto esquerdo da sua tela ficará assim:
 
@@ -65,7 +65,7 @@ Para mudar a linha >>"outDir": "./" <<, para >>"outDir": "./dist" <<, aperte Con
 
 Adicione embaixo a linha  "rootDir": "./src", seu arquivo de configuração do compilador do TypeScript ficará mais ou menos assim.
 
-````
+````json
 {
   "compilerOptions": {
     "target": "ES2017",
@@ -152,7 +152,7 @@ Apos executar o comando anterior, aparecera uma opção de execução e você de
 
 Crie um arquivo ````database.ts```` dentro da pasta ````src```` e adicione o seguinte código.
 
-````
+````typescript
 import { Database, open } from 'sqlite';
 import sqlite3 from 'sqlite3';
 
@@ -224,7 +224,7 @@ app.listen(port, () => {
 
 Crie um arquivo chamada teste.http FORA DA PASTA src e adicione o seguinte codigo
 
-````
+````http
 POST (   SEU LINK /users) HTTP/1.1
 Content-Type: application/json
 Authorization: token xxx
@@ -251,7 +251,7 @@ Agora clique no link (Endereço Encaminhado) e o copie. Após copiado, substitua
 
 Seu codigo ficara mais ou menos assim
 
-````
+```
 POST https://meusite/users HTTP/1.1
 Content-Type: application/json
 Authorization: token xxx
@@ -260,24 +260,24 @@ Authorization: token xxx
   "name": "John Doe",
   "email": "john@example.com"
 }
-````
+```
 
-Agora, clique na opção ````Send Request```` que aparecera encima da primeira linha em Post.
+Agora, clique na opção `Send Request` que aparecera encima da primeira linha em Post.
 
 Se tudo ocorreu bem, voce abrira o link da primeira linha e aparecera o seguinte resultado
 
-````
+```json
 {
   "id": 1,
   "name": "John Doe",
   "email": "
 }
-````
+```
 # Atualize teste.http
 
 Ele ficará assim
 
-````
+```http
 POST (SEU LINK /users/1) HTTP/1.1
 Content-Type: application/json
 Authorization: token xxx
@@ -299,10 +299,10 @@ Content-Type: application/json
 ####
 
 DELETE (SEU LINK /users/1) HTTP/1.1
-````
+```
 Tambem alteraremos app.ts, que ficará assim:
 
-````
+```
 import express from 'express';
 import cors from 'cors';
 import { connect } from './database';
@@ -357,7 +357,7 @@ app.delete('/users/:id', async (req, res) => {
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);
 });
-````
+```
 
 # Estilizando a pagina
 
@@ -365,7 +365,7 @@ Crie uma pasta chamada public e um arquivo dentro da pasta chamado index.html
 
 Dentro de ìndex.html adicione:
 
-````
+```
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -471,11 +471,11 @@ Dentro de ìndex.html adicione:
 </body>
 
 </html>
-````
+```
 
 criei um arquivo dentro de public chamado index.css e dentro de index.css adicione:
 
-````
+```
 html, body {
     height: 100% ;
     margin: 0;
@@ -583,19 +583,19 @@ html, body {
     background-color: #218838;
   }
   
-  ````
+  ```
 
   # Alterando novamente o app.ts
 
-  na linha 9 onde tem isso ````app.use(express.json()); ````
+  na linha 9 onde tem isso `app.use(express.json());`
 
 voce ira colocar embaixo o seguinte codigo:
 
-````app.use(express.static(__dirname + '/../public'))````
+`app.use(express.static(__dirname + '/../public'))`
 
 o começo do seu arquivo app.ts deve estar assim:
 
-````
+```
 import express from 'express'
 import cors from 'cors'
 import { connect } from './database'
@@ -612,6 +612,6 @@ app.get('/users', async (req, res) => {
   const users = await db.all('SELECT * FROM users')
   res.json(users)
 })
-````
+```
 
 ### Fim do codigo
